@@ -7,3 +7,13 @@ block content
     div(class="row")
     each item in results
       div(class="col-sm-2" width="215px") Ornament Type:#{item.OrnamentType}, Ornament Cost:#{item.OrnamentCost}, Ornament Strength:#{item.OrnamentStrength}
+  br
+  div(class="container-fluid")
+    div(class="row")
+    - for(var i=0;i<results.length;i++) {
+        div(class="col-sm-2" width="215px" onClick=`buy(${i+1})`) #{results[i].OrnamentType}
+    -}
+  script. 
+    function buy(indexNum) {
+      alert(`You purchased item ${indexNum}`);
+    }
